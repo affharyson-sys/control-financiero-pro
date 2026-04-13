@@ -1,0 +1,1534 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Control Financiero Pro - Plantilla Excel para Control Total de tus Finanzas</title>
+    <meta name="description" content="Dashboard profesional en Excel para controlar ingresos, egresos, inversiones y alcanzar tu libertad financiera. Descarga instantánea.">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Control Financiero Pro - Toma el Control de tu Dinero">
+    <meta property="og:description" content="Plantilla Excel profesional con dashboard financiero. Controla cada peso que entra y sale.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://conviertelikesenventas.com">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@700;800&display=swap" rel="stylesheet">
+    
+    <!-- Meta Pixel (REEMPLAZA TU_PIXEL_ID_AQUI con tu ID real) -->
+    <script>
+        !function(f,b,e,v,n,t,s)
+        {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', 'TU_PIXEL_ID_AQUI');
+        fbq('track', 'PageView');
+    </script>
+
+    <style>
+        /* ========== RESET & BASE ========== */
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: #2D3748;
+            background-color: #F8F9FA;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            line-height: 1.2;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* ========== FLOATING CTA BAR ========== */
+        .floating-cta {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: #1B2E4B;
+            padding: 14px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            z-index: 1000;
+            box-shadow: 0 -4px 20px rgba(0,0,0,0.3);
+        }
+
+        .floating-cta .price-tag {
+            color: #2ECC71;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 1.3rem;
+            font-weight: 800;
+        }
+
+        .floating-cta .price-tag span {
+            font-size: 0.85rem;
+            color: rgba(255,255,255,0.7);
+            font-weight: 400;
+        }
+
+        .floating-cta .btn-whatsapp {
+            background: #25D366;
+            color: white;
+            font-weight: 700;
+            font-size: 1rem;
+            padding: 12px 28px;
+            border-radius: 50px;
+            border: none;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: transform 0.2s, box-shadow 0.2s;
+            text-decoration: none;
+        }
+
+        .floating-cta .btn-whatsapp:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 15px rgba(37,211,102,0.4);
+        }
+
+        /* ========== HERO ========== */
+        .hero {
+            background: linear-gradient(165deg, #1B2E4B 0%, #0F1B2D 60%, #162A42 100%);
+            padding: 70px 20px 60px;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -30%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(26,140,91,0.15) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .hero .badge {
+            display: inline-block;
+            background: rgba(46,204,113,0.15);
+            color: #2ECC71;
+            font-weight: 600;
+            font-size: 0.85rem;
+            padding: 6px 18px;
+            border-radius: 50px;
+            border: 1px solid rgba(46,204,113,0.3);
+            margin-bottom: 24px;
+            letter-spacing: 0.5px;
+        }
+
+        .hero h1 {
+            font-size: 2.4rem;
+            font-weight: 800;
+            margin-bottom: 18px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero h1 .highlight {
+            color: #2ECC71;
+        }
+
+        .hero .subtitle {
+            font-size: 1.15rem;
+            color: rgba(255,255,255,0.8);
+            max-width: 560px;
+            margin: 0 auto 32px;
+            line-height: 1.7;
+        }
+
+        .hero .hero-image {
+            max-width: 800px;
+            margin: 30px auto 0;
+            border-radius: 16px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+            border: 3px solid rgba(255,255,255,0.1);
+        }
+
+        .hero-mockup {
+            width: 100%;
+            background: linear-gradient(135deg, #1A8C5B, #15705A);
+            border-radius: 16px;
+            padding: 40px 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+        }
+
+        .hero-mockup .mockup-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 16px;
+            border-bottom: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .hero-mockup .mockup-header h3 {
+            color: white;
+            font-size: 1.1rem;
+        }
+
+        .hero-mockup .mockup-header .mockup-badge {
+            background: rgba(255,255,255,0.2);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+        }
+
+        .mockup-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 12px;
+        }
+
+        .mockup-card {
+            background: rgba(255,255,255,0.15);
+            backdrop-filter: blur(10px);
+            border-radius: 12px;
+            padding: 18px 16px;
+            text-align: center;
+        }
+
+        .mockup-card .card-value {
+            color: #2ECC71;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 1.4rem;
+            font-weight: 800;
+        }
+
+        .mockup-card .card-label {
+            color: rgba(255,255,255,0.7);
+            font-size: 0.75rem;
+            margin-top: 4px;
+        }
+
+        .mockup-chart {
+            background: rgba(255,255,255,0.1);
+            border-radius: 12px;
+            padding: 20px;
+            height: 100px;
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-around;
+            gap: 8px;
+        }
+
+        .mockup-bar {
+            width: 100%;
+            background: linear-gradient(to top, #2ECC71, rgba(46,204,113,0.4));
+            border-radius: 6px 6px 0 0;
+            min-height: 20px;
+        }
+
+        /* ========== BUTTONS ========== */
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: #2ECC71;
+            color: #1B2E4B;
+            font-weight: 700;
+            font-size: 1.1rem;
+            padding: 16px 36px;
+            border-radius: 50px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            box-shadow: 0 4px 15px rgba(46,204,113,0.4);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(46,204,113,0.5);
+        }
+
+        .btn-primary svg {
+            width: 22px;
+            height: 22px;
+            fill: currentColor;
+        }
+
+        .btn-secondary {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: transparent;
+            color: white;
+            font-weight: 600;
+            font-size: 0.95rem;
+            padding: 12px 24px;
+            border-radius: 50px;
+            border: 2px solid rgba(255,255,255,0.3);
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+        }
+
+        .btn-secondary:hover {
+            border-color: #2ECC71;
+            color: #2ECC71;
+        }
+
+        /* ========== SECTIONS GENERAL ========== */
+        section {
+            padding: 70px 20px;
+        }
+
+        .section-title {
+            font-size: 1.9rem;
+            font-weight: 800;
+            text-align: center;
+            margin-bottom: 14px;
+            color: #1B2E4B;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: #64748B;
+            font-size: 1.05rem;
+            max-width: 600px;
+            margin: 0 auto 45px;
+            line-height: 1.7;
+        }
+
+        .section-title .accent {
+            color: #1A8C5B;
+        }
+
+        /* ========== PROBLEMA ========== */
+        .problema {
+            background: white;
+        }
+
+        .problema-points {
+            max-width: 650px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .problema-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            background: #FFF5F5;
+            padding: 20px;
+            border-radius: 14px;
+            border-left: 4px solid #E53E3E;
+        }
+
+        .problema-item .icon {
+            flex-shrink: 0;
+            width: 40px;
+            height: 40px;
+            background: #E53E3E;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.1rem;
+            font-weight: 700;
+        }
+
+        .problema-item p {
+            font-size: 1rem;
+            color: #4A5568;
+            line-height: 1.6;
+        }
+
+        .problema-item p strong {
+            color: #2D3748;
+        }
+
+        /* ========== PUENTE ========== */
+        .puente {
+            background: linear-gradient(135deg, #1A8C5B, #15705A);
+            text-align: center;
+            color: white;
+            padding: 50px 20px;
+        }
+
+        .puente h2 {
+            font-size: 1.8rem;
+            font-weight: 800;
+            margin-bottom: 14px;
+        }
+
+        .puente p {
+            font-size: 1.05rem;
+            opacity: 0.9;
+            max-width: 550px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+
+        /* ========== FEATURES ========== */
+        .features {
+            background: #F8F9FA;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 32px 26px;
+            border-radius: 16px;
+            text-align: center;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 1px solid #EDF2F7;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+        }
+
+        .feature-card .feature-icon {
+            width: 56px;
+            height: 56px;
+            background: linear-gradient(135deg, rgba(26,140,91,0.1), rgba(46,204,113,0.1));
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 18px;
+            font-size: 1.5rem;
+        }
+
+        .feature-card h3 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #1B2E4B;
+            margin-bottom: 10px;
+        }
+
+        .feature-card p {
+            font-size: 0.92rem;
+            color: #64748B;
+            line-height: 1.65;
+        }
+
+        /* ========== COMO FUNCIONA ========== */
+        .como-funciona {
+            background: white;
+        }
+
+        .steps {
+            max-width: 700px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 32px;
+        }
+
+        .step {
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+        }
+
+        .step-number {
+            flex-shrink: 0;
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, #1A8C5B, #2ECC71);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 800;
+        }
+
+        .step-content h3 {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: #1B2E4B;
+            margin-bottom: 6px;
+        }
+
+        .step-content p {
+            color: #64748B;
+            font-size: 0.95rem;
+            line-height: 1.65;
+        }
+
+        /* ========== VISTA PREVIA ========== */
+        .vista-previa {
+            background: #F8F9FA;
+        }
+
+        .preview-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 16px;
+            max-width: 900px;
+            margin: 0 auto 40px;
+        }
+
+        .preview-feature {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background: white;
+            padding: 16px 20px;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+        }
+
+        .preview-feature .check {
+            flex-shrink: 0;
+            width: 28px;
+            height: 28px;
+            background: #E6F9EE;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #1A8C5B;
+            font-size: 0.9rem;
+            font-weight: 700;
+        }
+
+        .preview-feature span {
+            font-size: 0.92rem;
+            color: #4A5568;
+            font-weight: 500;
+        }
+
+        .preview-image-wrap {
+            max-width: 850px;
+            margin: 0 auto;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 12px 40px rgba(0,0,0,0.12);
+            border: 3px solid white;
+        }
+
+        .preview-dashboard {
+            background: #F1F5F9;
+            padding: 30px 24px;
+        }
+
+        .preview-dashboard .dash-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 24px;
+        }
+
+        .preview-dashboard .dash-header h3 {
+            font-size: 1.1rem;
+            color: #1B2E4B;
+        }
+
+        .preview-dashboard .dash-tabs {
+            display: flex;
+            gap: 4px;
+            background: white;
+            padding: 4px;
+            border-radius: 10px;
+        }
+
+        .preview-dashboard .dash-tab {
+            padding: 6px 16px;
+            border-radius: 8px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: #64748B;
+        }
+
+        .preview-dashboard .dash-tab.active {
+            background: #1A8C5B;
+            color: white;
+        }
+
+        .dash-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+
+        .dash-stat {
+            background: white;
+            padding: 16px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+        }
+
+        .dash-stat .stat-value {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 1.3rem;
+            font-weight: 800;
+            color: #1B2E4B;
+        }
+
+        .dash-stat .stat-value.green { color: #1A8C5B; }
+        .dash-stat .stat-value.red { color: #E53E3E; }
+
+        .dash-stat .stat-label {
+            font-size: 0.75rem;
+            color: #94A3B8;
+            margin-top: 4px;
+        }
+
+        .dash-chart-area {
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+        }
+
+        .dash-chart-area h4 {
+            font-size: 0.9rem;
+            color: #1B2E4B;
+            margin-bottom: 16px;
+        }
+
+        .mini-chart {
+            display: flex;
+            align-items: flex-end;
+            gap: 6px;
+            height: 80px;
+        }
+
+        .mini-bar {
+            flex: 1;
+            border-radius: 4px 4px 0 0;
+            min-height: 10px;
+        }
+
+        /* ========== TESTIMONIOS ========== */
+        .testimonios {
+            background: white;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+        }
+
+        .testimonial-card {
+            background: #F8F9FA;
+            padding: 28px 24px;
+            border-radius: 16px;
+            border: 1px solid #EDF2F7;
+        }
+
+        .testimonial-card .stars {
+            color: #F59E0B;
+            font-size: 1rem;
+            margin-bottom: 12px;
+            letter-spacing: 2px;
+        }
+
+        .testimonial-card .quote {
+            font-size: 0.95rem;
+            color: #4A5568;
+            line-height: 1.7;
+            margin-bottom: 16px;
+            font-style: italic;
+        }
+
+        .testimonial-card .author {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .testimonial-card .author-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #1A8C5B, #2ECC71);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+
+        .testimonial-card .author-info .name {
+            font-weight: 700;
+            font-size: 0.9rem;
+            color: #1B2E4B;
+        }
+
+        .testimonial-card .author-info .role {
+            font-size: 0.8rem;
+            color: #94A3B8;
+        }
+
+        /* ========== PRECIO ========== */
+        .precio {
+            background: #F8F9FA;
+        }
+
+        .pricing-card {
+            max-width: 480px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+            border: 2px solid #EDF2F7;
+            text-align: center;
+        }
+
+        .pricing-card .pricing-header {
+            background: linear-gradient(135deg, #1B2E4B, #162A42);
+            padding: 30px 24px;
+            color: white;
+        }
+
+        .pricing-card .pricing-header .label {
+            font-size: 0.85rem;
+            opacity: 0.7;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+
+        .pricing-card .pricing-header .old-price {
+            font-size: 1rem;
+            opacity: 0.5;
+            text-decoration: line-through;
+            margin-bottom: 4px;
+        }
+
+        .pricing-card .pricing-header .price {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 3rem;
+            font-weight: 800;
+            color: #2ECC71;
+        }
+
+        .pricing-card .pricing-header .price-sub {
+            font-size: 0.85rem;
+            opacity: 0.7;
+            margin-top: 4px;
+        }
+
+        .pricing-card .pricing-body {
+            padding: 30px 24px;
+        }
+
+        .pricing-card .pricing-body ul {
+            list-style: none;
+            margin-bottom: 28px;
+        }
+
+        .pricing-card .pricing-body ul li {
+            padding: 8px 0;
+            font-size: 0.92rem;
+            color: #4A5568;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .pricing-card .pricing-body ul li .check-icon {
+            color: #1A8C5B;
+            font-weight: 700;
+        }
+
+        .garantia-section {
+            max-width: 550px;
+            margin: 40px auto 0;
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            background: #FFFBEB;
+            padding: 24px;
+            border-radius: 14px;
+            border: 1px solid #FDE68A;
+        }
+
+        .garantia-section .shield {
+            flex-shrink: 0;
+            font-size: 2rem;
+        }
+
+        .garantia-section .garantia-text h4 {
+            font-size: 1rem;
+            color: #92400E;
+            margin-bottom: 6px;
+        }
+
+        .garantia-section .garantia-text p {
+            font-size: 0.88rem;
+            color: #A16207;
+            line-height: 1.65;
+        }
+
+        /* ========== FAQ ========== */
+        .faq {
+            background: white;
+        }
+
+        .faq-list {
+            max-width: 650px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            border: 1px solid #EDF2F7;
+            border-radius: 12px;
+            margin-bottom: 12px;
+            overflow: hidden;
+        }
+
+        .faq-question {
+            width: 100%;
+            background: none;
+            border: none;
+            padding: 18px 20px;
+            text-align: left;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.98rem;
+            font-weight: 700;
+            color: #1B2E4B;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background 0.2s;
+        }
+
+        .faq-question:hover {
+            background: #F8F9FA;
+        }
+
+        .faq-question .arrow {
+            transition: transform 0.3s;
+            font-size: 0.8rem;
+            color: #94A3B8;
+        }
+
+        .faq-item.active .faq-question .arrow {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 300px;
+        }
+
+        .faq-answer-inner {
+            padding: 0 20px 18px;
+            font-size: 0.92rem;
+            color: #64748B;
+            line-height: 1.7;
+        }
+
+        /* ========== CIERRE ========== */
+        .cierre {
+            background: linear-gradient(165deg, #1B2E4B 0%, #0F1B2D 100%);
+            text-align: center;
+            color: white;
+            padding: 70px 20px;
+            margin-bottom: 70px;
+        }
+
+        .cierre h2 {
+            font-size: 1.9rem;
+            font-weight: 800;
+            margin-bottom: 16px;
+        }
+
+        .cierre .cierre-sub {
+            font-size: 1.05rem;
+            opacity: 0.8;
+            max-width: 500px;
+            margin: 0 auto 32px;
+            line-height: 1.7;
+        }
+
+        /* ========== WHATSAPP FLOAT ========== */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 90px;
+            right: 20px;
+            width: 56px;
+            height: 56px;
+            background: #25D366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 12px rgba(37,211,102,0.4);
+            z-index: 999;
+            transition: transform 0.3s;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+        }
+
+        .whatsapp-float svg {
+            width: 28px;
+            height: 28px;
+            fill: white;
+        }
+
+        /* ========== ANIMATIONS ========== */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s, transform 0.6s;
+        }
+
+        .animate-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ========== RESPONSIVE ========== */
+        @media (max-width: 768px) {
+            .hero {
+                padding: 50px 16px 45px;
+            }
+
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .hero .subtitle {
+                font-size: 1rem;
+            }
+
+            .floating-cta {
+                flex-direction: column;
+                gap: 10px;
+                padding: 12px 16px;
+            }
+
+            .floating-cta .price-tag {
+                font-size: 1.1rem;
+            }
+
+            section {
+                padding: 50px 16px;
+            }
+
+            .section-title {
+                font-size: 1.5rem;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .pricing-card .pricing-header .price {
+                font-size: 2.5rem;
+            }
+
+            .whatsapp-float {
+                bottom: 140px;
+                right: 14px;
+                width: 50px;
+                height: 50px;
+            }
+
+            .mockup-cards {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 1.5rem;
+            }
+
+            .preview-features {
+                grid-template-columns: 1fr;
+            }
+
+            .dash-stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- =============== HERO =============== -->
+    <section class="hero" id="inicio">
+        <div class="container">
+            <div class="badge">PLANTILLA EXCEL PROFESIONAL</div>
+            <h1>Toma el <span class="highlight">Control Total</span> de tus Finanzas en Minutos</h1>
+            <p class="subtitle">Dashboard profesional en Excel que te permite visualizar ingresos, egresos y ahorros de forma automática. Sin complicaciones, sin fórmulas complejas.</p>
+            
+            <div style="margin-bottom: 28px;">
+                <a href="https://wa.me/573022178253?text=Hola%2C%20quiero%20comprar%20Control%20Financiero%20Pro" class="btn-primary" id="cta-hero" target="_blank" rel="noopener">
+                    <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                    Quiero Mi Control Financiero
+                </a>
+            </div>
+            <div class="hero-mockup hero-image">
+                <div class="mockup-header">
+                    <h3>Dashboard Financiero</h3>
+                    <span class="mockup-badge">En tiempo real</span>
+                </div>
+                <div class="mockup-cards">
+                    <div class="mockup-card">
+                        <div class="card-value">$4.850.000</div>
+                        <div class="card-label">Ingresos Totales</div>
+                    </div>
+                    <div class="mockup-card">
+                        <div class="card-value">$2.130.000</div>
+                        <div class="card-label">Egresos Totales</div>
+                    </div>
+                    <div class="mockup-card">
+                        <div class="card-value">$2.720.000</div>
+                        <div class="card-label">Balance Disponible</div>
+                    </div>
+                </div>
+                <div class="mockup-chart">
+                    <div class="mockup-bar" style="height:45%"></div>
+                    <div class="mockup-bar" style="height:70%"></div>
+                    <div class="mockup-bar" style="height:55%"></div>
+                    <div class="mockup-bar" style="height:85%"></div>
+                    <div class="mockup-bar" style="height:65%"></div>
+                    <div class="mockup-bar" style="height:90%"></div>
+                    <div class="mockup-bar" style="height:75%"></div>
+                    <div class="mockup-bar" style="height:100%"></div>
+                    <div class="mockup-bar" style="height:60%"></div>
+                    <div class="mockup-bar" style="height:80%"></div>
+                    <div class="mockup-bar" style="height:95%"></div>
+                    <div class="mockup-bar" style="height:70%"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- =============== PROBLEMA =============== -->
+    <section class="problema" id="problema">
+        <div class="container">
+            <h2 class="section-title animate-in">Te identificas con <span class="accent">esto</span>?</h2>
+            <p class="section-subtitle animate-in">Si alguna de estas situaciones te suena familiar, estás en el lugar correcto.</p>
+            
+            <div class="problema-points">
+                <div class="problema-item animate-in">
+                    <div class="icon">!</div>
+                    <p><strong>No sabes dónde se va tu dinero.</strong> Al final del mes revisas tu cuenta y no entiendes cómo desapareció tanto. Las cifras simplemente no cuadran y la frustración crece mes a mes.</p>
+                </div>
+                <div class="problema-item animate-in">
+                    <div class="icon">!</div>
+                    <p><strong>Usas apps complejas que nunca terminas de entender.</strong> Te registras en aplicaciones financieras llenas de funciones que no necesitas, con interfaces confusas que al final abandonas a los pocos días.</p>
+                </div>
+                <div class="problema-item animate-in">
+                    <div class="icon">!</div>
+                    <p><strong>Quieres ahorrar pero no tienes un plan claro.</strong> Sabes que deberías guardar dinero, pero sin una metodología visual y concreta, las buenas intenciones se quedan solo en intenciones.</p>
+                </div>
+                <div class="problema-item animate-in">
+                    <div class="icon">!</div>
+                    <p><strong>Tu negocio o emprendimiento crece y pierdes el control.</strong> Más ingresos deberían significar más tranquilidad, pero sin un sistema de control financiero, el crecimiento se vuelve caótico e impredecible.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- =============== PUENTE =============== -->
+    <section class="puente">
+        <div class="container">
+            <h2>Ya no tienes que adivinar dónde está tu dinero</h2>
+            <p>Control Financiero Pro te da la claridad visual que necesitas para tomar mejores decisiones financieras, todo desde una herramienta que ya conoces: Excel.</p>
+        </div>
+    </section>
+
+    <!-- =============== FEATURES =============== -->
+    <section class="features" id="caracteristicas">
+        <div class="container">
+            <h2 class="section-title animate-in">Todo lo que <span class="accent">necesitas</span> en un solo lugar</h2>
+            <p class="section-subtitle animate-in">Diseñado para ser intuitivo, potente y listo para usar desde el primer día.</p>
+            
+            <div class="features-grid">
+                <div class="feature-card animate-in">
+                    <div class="feature-icon">📊</div>
+                    <h3>Dashboard Automático</h3>
+                    <p>Todas tus métricas financieras se actualizan automáticamente cuando ingresas tus datos. Ingresos, egresos, balance y tendencias visibles al instante sin fórmulas manuales.</p>
+                </div>
+                <div class="feature-card animate-in">
+                    <div class="feature-icon">💰</div>
+                    <h3>Control de Ingresos y Egresos</h3>
+                    <p>Registra cada movimiento con categorías personalizables. Filtra por fecha, tipo de gasto y categoría para encontrar exactamente lo que buscas en segundos.</p>
+                </div>
+                <div class="feature-card animate-in">
+                    <div class="feature-icon">📈</div>
+                    <h3>Gráficos Dinámicos</h3>
+                    <p>Visualiza la evolución de tus finanzas con gráficos que se actualizan automáticamente. Identifica patrones de gasto y oportunidades de ahorro de un vistazo.</p>
+                </div>
+                <div class="feature-card animate-in">
+                    <div class="feature-icon">🎯</div>
+                    <h3>Metas de Ahorro</h3>
+                    <p>Define metas financieras con plazos y montos específicos. Sigue tu progreso con indicadores visuales que te motivan a mantener el rumbo cada día.</p>
+                </div>
+                <div class="feature-card animate-in">
+                    <div class="feature-icon">🔒</div>
+                    <h3>Fácil de Usar</h3>
+                    <p>Sin necesidad de ser experto en Excel. Interfase diseñada paso a paso con instrucciones claras incluidas. Abre, ingresa tus datos y listo.</p>
+                </div>
+                <div class="feature-card animate-in">
+                    <div class="feature-icon">📲</div>
+                    <h3>Compatible con Móvil</h3>
+                    <p>Funciona en Excel Online, Google Sheets y la app de Excel para celular. Lleva tu control financiero en el bolsillo dondequiera que vayas.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- =============== CÓMO FUNCIONA =============== -->
+    <section class="como-funciona" id="como-funciona">
+        <div class="container">
+            <h2 class="section-title animate-in">Tan fácil como <span class="accent">1, 2, 3</span></h2>
+            <p class="section-subtitle animate-in">En menos de 5 minutos tendrás tu control financiero funcionando al 100%.</p>
+            
+            <div class="steps">
+                <div class="step animate-in">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>Descarga y Abre</h3>
+                        <p>Recibe el archivo Excel por WhatsApp. Ábrelo en Excel, Google Sheets o la app de Excel en tu celular. No necesitas instalar nada adicional ni crear cuentas.</p>
+                    </div>
+                </div>
+                <div class="step animate-in">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>Ingresa tus Datos</h3>
+                        <p>En la hoja de registro simplemente escribe tus ingresos y egresos del día. El dashboard se actualiza automáticamente con cada dato que ingresas.</p>
+                    </div>
+                </div>
+                <div class="step animate-in">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>Toma Decisiones Inteligentes</h3>
+                        <p>Revisa tu dashboard para ver dónde está tu dinero, qué categorías consumen más y cómo puedes optimizar. Información clara para decisiones inteligentes.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- =============== VISTA PREVIA =============== -->
+    <section class="vista-previa" id="vista-previa">
+        <div class="container">
+            <h2 class="section-title animate-in">Así se ve tu <span class="accent">Dashboard</span></h2>
+            <p class="section-subtitle animate-in">Un panel profesional y limpio que te muestra toda la información financiera que necesitas.</p>
+            
+            <div class="preview-features animate-in">
+                <div class="preview-feature">
+                    <div class="check">&#10003;</div>
+                    <span>Resumen mensual automático</span>
+                </div>
+                <div class="preview-feature">
+                    <div class="check">&#10003;</div>
+                    <span>Gráficos de ingresos vs egresos</span>
+                </div>
+                <div class="preview-feature">
+                    <div class="check">&#10003;</div>
+                    <span>Control por categorías</span>
+                </div>
+                <div class="preview-feature">
+                    <div class="check">&#10003;</div>
+                    <span>Seguimiento de metas</span>
+                </div>
+                <div class="preview-feature">
+                    <div class="check">&#10003;</div>
+                    <span>Alertas de presupuesto</span>
+                </div>
+                <div class="preview-feature">
+                    <div class="check">&#10003;</div>
+                    <span>Exportable a PDF</span>
+                </div>
+            </div>
+
+            <div class="preview-image-wrap animate-in">
+                <div class="preview-dashboard">
+                    <div class="dash-header">
+                        <h3>Mi Dashboard Financiero</h3>
+                        <div class="dash-tabs">
+                            <div class="dash-tab active">Mensual</div>
+                            <div class="dash-tab">Semanal</div>
+                            <div class="dash-tab">Anual</div>
+                        </div>
+                    </div>
+                    <div class="dash-stats">
+                        <div class="dash-stat">
+                            <div class="stat-value green">$4.850.000</div>
+                            <div class="stat-label">Ingresos</div>
+                        </div>
+                        <div class="dash-stat">
+                            <div class="stat-value red">$2.130.000</div>
+                            <div class="stat-label">Egresos</div>
+                        </div>
+                        <div class="dash-stat">
+                            <div class="stat-value">$2.720.000</div>
+                            <div class="stat-label">Balance</div>
+                        </div>
+                        <div class="dash-stat">
+                            <div class="stat-value green">56%</div>
+                            <div class="stat-label">Tasa Ahorro</div>
+                        </div>
+                    </div>
+                    <div class="dash-chart-area">
+                        <h4>Ingresos vs Egresos - Últimos 6 meses</h4>
+                        <div class="mini-chart">
+                            <div style="flex:1; display:flex; flex-direction:column; align-items:center; gap:4px;">
+                                <div style="display:flex; gap:3px; align-items:flex-end; height:60px;">
+                                    <div class="mini-bar" style="background:#1A8C5B; height:40px;"></div>
+                                    <div class="mini-bar" style="background:#E53E3E; height:25px;"></div>
+                                </div>
+                                <span style="font-size:0.65rem; color:#94A3B8;">Ene</span>
+                            </div>
+                            <div style="flex:1; display:flex; flex-direction:column; align-items:center; gap:4px;">
+                                <div style="display:flex; gap:3px; align-items:flex-end; height:60px;">
+                                    <div class="mini-bar" style="background:#1A8C5B; height:45px;"></div>
+                                    <div class="mini-bar" style="background:#E53E3E; height:30px;"></div>
+                                </div>
+                                <span style="font-size:0.65rem; color:#94A3B8;">Feb</span>
+                            </div>
+                            <div style="flex:1; display:flex; flex-direction:column; align-items:center; gap:4px;">
+                                <div style="display:flex; gap:3px; align-items:flex-end; height:60px;">
+                                    <div class="mini-bar" style="background:#1A8C5B; height:50px;"></div>
+                                    <div class="mini-bar" style="background:#E53E3E; height:28px;"></div>
+                                </div>
+                                <span style="font-size:0.65rem; color:#94A3B8;">Mar</span>
+                            </div>
+                            <div style="flex:1; display:flex; flex-direction:column; align-items:center; gap:4px;">
+                                <div style="display:flex; gap:3px; align-items:flex-end; height:60px;">
+                                    <div class="mini-bar" style="background:#1A8C5B; height:55px;"></div>
+                                    <div class="mini-bar" style="background:#E53E3E; height:32px;"></div>
+                                </div>
+                                <span style="font-size:0.65rem; color:#94A3B8;">Abr</span>
+                            </div>
+                            <div style="flex:1; display:flex; flex-direction:column; align-items:center; gap:4px;">
+                                <div style="display:flex; gap:3px; align-items:flex-end; height:60px;">
+                                    <div class="mini-bar" style="background:#1A8C5B; height:60px;"></div>
+                                    <div class="mini-bar" style="background:#E53E3E; height:27px;"></div>
+                                </div>
+                                <span style="font-size:0.65rem; color:#94A3B8;">May</span>
+                            </div>
+                            <div style="flex:1; display:flex; flex-direction:column; align-items:center; gap:4px;">
+                                <div style="display:flex; gap:3px; align-items:flex-end; height:60px;">
+                                    <div class="mini-bar" style="background:#1A8C5B; height:65px;"></div>
+                                    <div class="mini-bar" style="background:#E53E3E; height:26px;"></div>
+                                </div>
+                                <span style="font-size:0.65rem; color:#94A3B8;">Jun</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- =============== TESTIMONIOS =============== -->
+    <section class="testimonios" id="testimonios">
+        <div class="container">
+            <h2 class="section-title animate-in">Lo que dicen <span class="accent">nuestros clientes</span></h2>
+            <p class="section-subtitle animate-in">Más de 500 personas ya toman el control de sus finanzas con nuestra plantilla.</p>
+            
+            <div class="testimonials-grid">
+                <div class="testimonial-card animate-in">
+                    <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                    <p class="quote">"Antes gastaba sin control y al final del mes no sabía en qué se me había ido el dinero. Con esta plantilla puedo ver exactamente cada peso y ahora estoy ahorrando más del 20% de mis ingresos cada mes."</p>
+                    <div class="author">
+                        <div class="author-avatar">CM</div>
+                        <div class="author-info">
+                            <div class="name">Carolina Mendoza</div>
+                            <div class="role">Emprendedora - Bogotá</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card animate-in">
+                    <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                    <p class="quote">"Tengo una tienda online y necesitaba controlar las ventas y gastos sin complicarme. Esta plantilla me cambió la vida. Es súper visual y fácil de usar. La recomiendo al 100% sin dudarlo."</p>
+                    <div class="author">
+                        <div class="author-avatar">JR</div>
+                        <div class="author-info">
+                            <div class="name">Juan Rodríguez</div>
+                            <div class="role">Dueño de tienda online - Medellín</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card animate-in">
+                    <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                    <p class="quote">"Probé muchas apps financieras y ninguna me convenció. Esta plantilla tiene todo lo que necesito: simple, visual y poderosa. En 5 minutos ya tenía todo configurado y funcionando perfecto."</p>
+                    <div class="author">
+                        <div class="author-avatar">LP</div>
+                        <div class="author-info">
+                            <div class="name">Laura Pérez</div>
+                            <div class="role">Freelancer - Cali</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- =============== PRECIO =============== -->
+    <section class="precio" id="precio">
+        <div class="container">
+            <h2 class="section-title animate-in">Una inversión que se <span class="accent">paga sola</span></h2>
+            <p class="section-subtitle animate-in">Por menos de lo que gastas en un almuerzo, obtendrás control total de tus finanzas para siempre.</p>
+            
+            <div class="pricing-card animate-in">
+                <div class="pricing-header">
+                    <div class="label">Oferta Especial</div>
+                    <div class="old-price">$97.000 COP</div>
+                    <div class="price">$47.300 <small>COP</small></div>
+                    <div class="price-sub">Pago único - Acceso de por vida</div>
+                </div>
+                <div class="pricing-body">
+                    <ul>
+                        <li><span class="check-icon">&#10003;</span> Dashboard financiero completo y automático</li>
+                        <li><span class="check-icon">&#10003;</span> Control de ingresos, egresos y balance</li>
+                        <li><span class="check-icon">&#10003;</span> Gráficos dinámicos que se actualizan solos</li>
+                        <li><span class="check-icon">&#10003;</span> Seguimiento de metas de ahorro</li>
+                        <li><span class="check-icon">&#10003;</span> Control por categorías personalizables</li>
+                        <li><span class="check-icon">&#10003;</span> Compatible con Excel y Google Sheets</li>
+                        <li><span class="check-icon">&#10003;</span> Instrucciones paso a paso incluidas</li>
+                        <li><span class="check-icon">&#10003;</span> Soporte por WhatsApp</li>
+                        <li><span class="check-icon">&#10003;</span> Actualizaciones gratuitas de por vida</li>
+                    </ul>
+                    <a href="https://wa.me/573022178253?text=Hola%2C%20quiero%20comprar%20Control%20Financiero%20Pro%20a%20%2447.300%20COP" class="btn-primary" id="cta-precio" target="_blank" rel="noopener" style="width:100%; justify-content:center;">
+                        <svg viewBox="0 0 24 24" style="width:20px;height:20px;fill:#1B2E4B;"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                        Comprar Ahora por $47.300 COP
+                    </a>
+                </div>
+            </div>
+
+            <div class="garantia-section animate-in">
+                <div class="shield">&#128737;</div>
+                <div class="garantia-text">
+                    <h4>Garantía de Satisfacción de 7 Días</h4>
+                    <p>Si por cualquier motivo no quedas satisfecho con la plantilla, te devolvemos tu dinero sin preguntas. Tu satisfacción es nuestra prioridad absoluta y no tenemos nada que perder porque sabemos que el producto funciona.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- =============== FAQ =============== -->
+    <section class="faq" id="faq">
+        <div class="container">
+            <h2 class="section-title animate-in">Preguntas <span class="accent">Frecuentes</span></h2>
+            <p class="section-subtitle animate-in">Resolvemos tus dudas para que tomes tu decisión con total confianza.</p>
+            
+            <div class="faq-list">
+                <div class="faq-item active">
+                    <button class="faq-question">
+                        ¿Necesito ser experto en Excel para usarlo?
+                        <span class="arrow">&#9660;</span>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">No, para nada. La plantilla viene completamente configurada con todas las fórmulas listas. Solo necesitas ingresar tus datos en las celdas indicadas y el dashboard se actualiza automáticamente. Además, incluye instrucciones paso a paso y nuestro equipo de soporte está disponible por WhatsApp para ayudarte con cualquier duda.</div>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        ¿Funciona en Mac y celular?
+                        <span class="arrow">&#9660;</span>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">Sí. Funciona en Excel para Windows, Excel para Mac, Google Sheets (navegador), Excel Online y la app móvil de Excel para iOS y Android. Puedes usarlo en cualquier dispositivo sin problemas. La visualización puede variar ligeramente en pantallas pequeñas pero toda la funcionalidad está disponible.</div>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        ¿Es un pago único o hay suscripciones?
+                        <span class="arrow">&#9660;</span>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">Es un solo pago de $47.300 COP y es tuyo para siempre. No hay suscripciones mensuales ni cargos ocultos. Además, recibes actualizaciones gratuitas cada vez que mejoramos la plantilla con nuevas funcionalidades o mejoras de diseño.</div>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        ¿Cómo recibo la plantilla después de pagar?
+                        <span class="arrow">&#9660;</span>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">Inmediatamente después de confirmar tu pago por WhatsApp, te enviamos el archivo Excel descargable al mismo número de WhatsApp. Generalmente en menos de 5 minutos ya tendrás tu plantilla lista para usar. También puedes descargarla desde el enlace que te proporcionamos.</div>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        ¿Puedo personalizar las categorías de gastos?
+                        <span class="arrow">&#9660;</span>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">Por supuesto. La plantilla viene con categorías predefinidas como vivienda, alimentación, transporte, entretenimiento y más, pero puedes agregar, modificar o eliminar cualquier categoría según tus necesidades específicas. El dashboard se adapta automáticamente a tus cambios.</div>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        ¿Qué pasa si no me gusta la plantilla?
+                        <span class="arrow">&#9660;</span>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">Tienes una garantía de satisfacción de 7 días. Si dentro de los primeros 7 días consideras que la plantilla no es para ti, simplemente escríbenos por WhatsApp y te devolvemos el 100% de tu dinero sin preguntas ni complicaciones. No tienes nada que perder.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- =============== CIERRE =============== -->
+    <section class="cierre" id="cierre">
+        <div class="container">
+            <h2>Tu libertad financiera comienza con una decisión</h2>
+            <p class="cierre-sub">No esperes al próximo mes para empezar a tomar el control. Por solo $47.300 COP tendrás una herramienta profesional que te acompañará por siempre.</p>
+            <a href="https://wa.me/573022178253?text=Hola%2C%20quiero%20comprar%20Control%20Financiero%20Pro%20a%20%2447.300%20COP" class="btn-primary" id="cta-cierre" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24" style="width:22px;height:22px;fill:#1B2E4B;"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                Empieza Ahora - Solo $47.300 COP
+            </a>
+        </div>
+    </section>
+
+    <!-- =============== FLOATING CTA BAR =============== -->
+    <div class="floating-cta">
+        <div class="price-tag">$47.300 COP <span>| Pago único</span></div>
+        <a href="https://wa.me/573022178253?text=Hola%2C%20quiero%20comprar%20Control%20Financiero%20Pro" class="btn-whatsapp" id="cta-float" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" style="width:20px;height:20px;fill:white;"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            Comprar por WhatsApp
+        </a>
+    </div>
+
+    <!-- =============== WHATSAPP FLOAT BUTTON =============== -->
+    <a href="https://wa.me/573022178253?text=Hola%2C%20tengo%20una%20pregunta%20sobre%20Control%20Financiero%20Pro" class="whatsapp-float" target="_blank" rel="noopener" aria-label="Chat por WhatsApp">
+        <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    </a>
+
+    <!-- =============== JAVASCRIPT =============== -->
+    <script>
+        // FAQ Accordion
+        document.querySelectorAll('.faq-question').forEach(button => {
+            button.addEventListener('click', () => {
+                const item = button.parentElement;
+                const isActive = item.classList.contains('active');
+                
+                // Close all
+                document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
+                
+                // Toggle current
+                if (!isActive) {
+                    item.classList.add('active');
+                }
+            });
+        });
+
+        // Scroll Animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.animate-in').forEach(el => observer.observe(el));
+
+        // Meta Pixel Events
+        document.querySelectorAll('a[id^="cta-"]').forEach(link => {
+            link.addEventListener('click', () => {
+                if (typeof fbq === 'function') {
+                    fbq('track', 'InitiateCheckout', {
+                        content_name: 'Control Financiero Pro',
+                        content_category: 'Plantilla Excel',
+                        value: 47300,
+                        currency: 'COP'
+                    });
+                }
+            });
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
